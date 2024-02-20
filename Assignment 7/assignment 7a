@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+class complex
+{
+    int real , imag;
+    static int a , b;
+    
+    public:
+    
+    
+    void Input();
+    void Output();
+    void operator+(complex s2);
+    void operator-(complex s2);
+    void operator*(complex s2);
+    void operator/(complex s2);
+   
+}; 
+int complex::a=1;
+int complex::b=1;
+void complex::Input()
+{   
+    cout<<"Enter the real and imaginary part of "<<a<<": "<<endl;
+    cin>>real>>imag;
+    a = a+1;
+    
+}
+void complex::Output()
+{
+    cout<<"The "<<b<<" complex is: "<<endl;
+    cout<<real<<"+"<<imag<<"i"<<endl;
+    b = b+1;
+}
+ void complex::operator+(complex s2)
+    {
+    int res = real + s2.real;
+    int im = imag + s2.imag;
+    
+    cout<<"The adiition Of two complex Number: "<<res<<"+"<<im<<"i"<<endl;
+    }
+    
+ void complex::operator-(complex s2)
+    {
+    int res = real - s2.real;
+    int im = imag - s2.imag;  
+    
+    cout<<"The substraction Of two complex Number: "<<res<<"+"<<im<<"i"<<endl;
+    }
+    
+ void complex::operator*(complex s2)
+    {
+    int res = (real * s2.real)-(imag * s2.imag); 
+    int im = (real * s2.imag)+(imag * s2.real);
+    
+    cout<<"The multiplication Of two complex Number: "<<res<<"+"<<im<<"i"<<endl;
+    }
+    
+void complex::operator/(complex s2)
+    {
+        int res = (real * s2.real)+(imag * s2.imag); 
+        int im = (imag * s2.real) - (real * s2.imag);
+        int deno = (s2.real*s2.real)+( s2.imag*s2.imag);
+        
+        cout<<"The division Of two complex Number: "<<res<<"/"<<deno<<"+"<<im<<"/"<<deno<<"i"<<endl;
+        
+    }
+    
+int main() 
+{   complex c1,c2;
+
+    c1.Input();
+    c2.Input();
+    c1.Output();
+    c2.Output();
+    
+    c1+c2;
+    c1-c2;
+    c1*c2;
+    c1/c2;
+    
+
+    return 0;
+}
