@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+class fibo
+{
+ int a , b ,sum,n;
+ public:
+ fibo()
+ {
+ a = 0;
+ b =1;
+ sum = 0;
+ 
+ }
+ void read(); 
+ void display();
+ void ser();
+};
+void fibo::read()
+{
+ cout<<"Write the nth term of fibonacci: ";
+ cin>>n; 
+}
+void fibo::display()
+{
+ cout<<a<<" "<<b<<" ";
+}
+void fibo::ser()
+{ int i = 3;
+ while(i <= n)
+ {
+ sum = a+b;
+ a = b;
+ b = sum;
+ 
+ cout<<sum<<" ";
+ 
+ i++;
+ }
+}
+int main() 
+{ 
+ 
+ fibo b1;
+ b1.read();
+ b1.display();
+ b1.ser();
+ 
+ 
+ return 0;
+}
