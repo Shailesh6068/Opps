@@ -11,6 +11,7 @@ public:
 void getdata();
 void putdata();
 void excepion();
+void check_age();
 };
 void employe::getdata()
 {   
@@ -23,6 +24,7 @@ void employe::getdata()
     cin>>Depart;
     cout<<"Age :";
     cin>>age;
+    check_age();
     cout<<"Phone Number :";
     cin>>ph;
     excepion();
@@ -30,6 +32,40 @@ void employe::getdata()
     cin>>b_s;
     cout<<"DA and HRA :";
     cin>>DA>>HRA;
+}
+void employe::check_age()
+{   
+  
+    if (age < 18 || age > 58 )
+    {    
+        try
+        {
+            if (age < 18)
+            {
+            throw(0);
+            }
+            if (age > 58)
+            {
+                throw('a');
+            }
+        }
+        catch(int x)
+        {
+            cout<<"Error :The age is less than 18 ,you are not egligible."<<endl;
+            cout<<"Rewrite the Age :";
+            cin>>age;
+            check_age();
+            
+          
+        }
+        catch(char y)
+        {
+            cout<<"Error :Error :The age is greater than 18 ,you are not egligible."<<endl;
+            cout<<"Rewrite the Age :";
+            cin>>age;
+            check_age();           
+        }
+    }  
 }
 void employe::excepion()
 {   
